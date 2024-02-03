@@ -1,7 +1,8 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
+
 html {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
@@ -17,14 +18,18 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 16px 36px;
+    background-color: #e5e5f7;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 37px), repeating-linear-gradient(#bcbfff55, #bcbfff);
 }
-header>nav{
+
+header>nav {
     display: flex;
     flex-direction: row;
     gap: 16px;
 
 }
-nav>a{
+
+nav>a {
     text-decoration: none;
     font-weight: 600;
     color: #000;
@@ -32,13 +37,77 @@ nav>a{
     border-radius: 4px;
 
 }
-.logo{
+
+.logo {
     font-weight: 600;
     font-size: 1.25rem;
 }
-.selectedPage{
+
+.selectedPage {
     border: 1px solid #000;
+    background-color: #fff7;
 }
-main{
-    padding: 24px;   
+
+.header {
+    font-weight: 600;
+    padding-right: 20px;
+}
+
+section {
+    padding: 24px 16px;
+}
+
+main {
+    padding: 24px;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control>label {
+    font-weight: 600;
+}
+
+.input-control>input,
+.input-control>textarea {
+    border-radius: 4px;
+    padding: 8px;
+    outline: none;
+    border: 1px solid #0004;
+    font-family: Figtree, sans-serif;
+    transition: all .25s ease-in;
+}
+
+.input-control>input:focus-within,
+.input-control>textarea:focus-within {
+    border: 2px solid #757cfb;
+    background-color: #bcbfff55;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+form>button {
+    padding: 8px;
+    background-color: #4d55e4;
+    color: #fff;
+    outline: none;
+    border: 2px solid #4d55e4;
+    border-radius: 4px;
+    font-family: Figtree, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .25s ease-in;
+}
+
+form>button:hover {
+    cursor: pointer;
+    background-color: #bcbfff55;
+    color: #4d55e4;
 }

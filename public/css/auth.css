@@ -16,12 +16,14 @@ body {
     height: 100vh;
     width: 100vw;
     background-color: #e5e5f7;
-    opacity: 0.8;
-    background-size: 10px 10px;
-    background-image: repeating-linear-gradient(45deg, #444cf7 0, #444cf7 1px, #e5e5f7 0, #e5e5f7 50%);
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 37px), repeating-linear-gradient(#bcbfff55, #bcbfff);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.errorMessage {
+    color: red;
 }
 
 .card {
@@ -56,20 +58,40 @@ body {
     border-radius: 4px;
     outline: none;
     border: 1px solid #000;
+    font-family: Figtree, sans-serif;
 }
+
 .input-control input:focus {
     border: 2px solid #444;
 }
 
-input:not(:placeholder-shown) + label {
+input:not(:placeholder-shown)+label {
     transform: translate(-16px, -32px);
     opacity: 1;
 }
-button{
+
+input:focus-within+label {
+    transform: translate(-16px, -32px);
+    opacity: 1;
+}
+
+button {
     padding: 8px;
-    background-color: #000;
-    color: #eee;
+    background-color: #4d55e4;
+    color: #fff;
     outline: none;
-    border: 1px solid #777;
+    border: 2px solid #4d55e4;
     border-radius: 4px;
+    font-family: Figtree, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .25s ease-in;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #bcbfff55;
+    color: #4d55e4;
+
 }

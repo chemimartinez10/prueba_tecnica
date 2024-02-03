@@ -20,6 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', Dashboard::class)->middleware('auth');
 Route::get('/emails', Emails::class)->middleware('auth');
-Route::get('/users', Users::class)->middleware('auth');
+Route::get('/users', Users::class)->middleware('auth')->middleware('role:admin');
 Route::get('/login', Login::class)->name('login');
 Route::get('/logout', Logout::class)->name('logout')->middleware('auth');
