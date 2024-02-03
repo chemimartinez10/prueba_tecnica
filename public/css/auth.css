@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    font-family: Figtree, sans-serif;
+    font-feature-settings: normal
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-size: 10px 10px;
+    background-image: repeating-linear-gradient(45deg, #444cf7 0, #444cf7 1px, #e5e5f7 0, #e5e5f7 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    padding: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 5px 5px #0002;
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-control {
+    position: relative;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control label {
+    position: absolute;
+    top: 30px;
+    left: 18px;
+    pointer-events: none;
+    transition: all .2s ease-out;
+    opacity: 0.5;
+}
+
+.input-control input {
+    padding: 8px 16px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #000;
+}
+.input-control input:focus {
+    border: 2px solid #444;
+}
+
+input:not(:placeholder-shown) + label {
+    transform: translate(-16px, -32px);
+    opacity: 1;
+}
+button{
+    padding: 8px;
+    background-color: #000;
+    color: #eee;
+    outline: none;
+    border: 1px solid #777;
+    border-radius: 4px;
+}
