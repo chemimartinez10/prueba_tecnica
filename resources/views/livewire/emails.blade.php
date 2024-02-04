@@ -1,6 +1,6 @@
 <section>
     <form wire:submit="loginUser">
-        <h2>
+        <h2 class="font-semibold text-3xl">
             Redacta tu correo
         </h2>
         <div class="input-control">
@@ -25,6 +25,6 @@
             <textarea wire:model="message" name="message" id="messageInput" cols="30" rows="20" placeholder="Escribe un mensaje aquí..."></textarea>
         </div>
         
-        <button type="submit">Enviar</button>
+        <button type="submit" class="bg-[#4d55e4] text-white rounded tracking-[2px] uppercase font-semibold transition-all duration-[0.25s] ease-[ease-in] p-2 border-2 border-solid border-[#4d55e4];">Enviar</button>
     </form>
 </section>

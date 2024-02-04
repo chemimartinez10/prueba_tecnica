@@ -55,6 +55,9 @@ nav>a {
 
 section {
     padding: 24px 16px;
+    gap:16px;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -92,7 +95,7 @@ form {
     gap: 16px;
 }
 
-form>button {
+form>button, section>button {
     padding: 8px;
     background-color: #4d55e4;
     color: #fff;
@@ -106,8 +109,12 @@ form>button {
     transition: all .25s ease-in;
 }
 
-form>button:hover {
+form>button:hover, section>button:hover {
     cursor: pointer;
     background-color: #bcbfff55;
     color: #4d55e4;
+}
+
+h1{
+    font-size: 3rem;
 }

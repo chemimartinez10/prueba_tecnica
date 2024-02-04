@@ -75,23 +75,3 @@ input:focus-within+label {
     opacity: 1;
 }
 
-button {
-    padding: 8px;
-    background-color: #4d55e4;
-    color: #fff;
-    outline: none;
-    border: 2px solid #4d55e4;
-    border-radius: 4px;
-    font-family: Figtree, sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: all .25s ease-in;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: #bcbfff55;
-    color: #4d55e4;
-
-}

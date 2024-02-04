@@ -1,5 +1,5 @@
 <div>
-    <h1>
+    <h1 class="font-semibold text-3xl">
         ¡Bienvenido {{Auth::user()->name}}!
     </h1>
     <section>
