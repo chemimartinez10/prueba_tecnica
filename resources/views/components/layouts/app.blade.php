@@ -15,6 +15,7 @@
             }
         </script>
         <link href="{{asset('css/app.css')}}" rel="stylesheet" />
+        @notifyCss
     </head>
 
     <body>
@@ -22,6 +23,9 @@
         <main>
             {{ $slot }}
         </main>
+        @livewire('wire-elements-modal')
+        <x-notify::notify />
+        @notifyJs
     </body>
 
 </html>

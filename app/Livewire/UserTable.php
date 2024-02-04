@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\User;
+use Carbon\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
-use App\Models\User;
 
 class UserTable extends DataTableComponent
 {
@@ -19,19 +20,31 @@ class UserTable extends DataTableComponent
     {
         return [
             Column::make("Name", "name")
-                ->sortable(),
+                ->sortable()->searchable(),
             Column::make("Email", "email")
-                ->sortable(),
+                ->sortable()->searchable(),
             Column::make("Birth date", "birth_date")
                 ->sortable(),
             Column::make("Identification", "identification")
-                ->sortable(),
+                ->sortable()->searchable(),
             Column::make("Phone", "phone")
-                ->sortable(),
+                ->sortable()->searchable(),
+            Column::make("Age")
+                ->label(fn($row, Column $column) => Carbon::now()->diff($row->birth_date)->y),
             Column::make("Created at", "created_at")
                 ->sortable(),
             Column::make("Updated at", "updated_at")
                 ->sortable(),
+            Column::make('Action')
+                ->label(
+                    fn($row, Column $column) => view('components.livewire.datatables.action-column')->with(
+                        [
+                            'viewLink' => route('users.view', $row),
+                            'editLink' => route('users.edit', $row),
+                            'deleteLink' => route('users.delete', $row),
+                        ]
+                    )
+                )->html(),
         ];
     }
 }

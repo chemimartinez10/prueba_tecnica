@@ -118,3 +118,6 @@ form>button:hover, section>button:hover {
 h1{
     font-size: 3rem;
 }
+.errorMessage{
+    color: red;
+}
