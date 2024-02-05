@@ -1,5 +1,5 @@
 <section>
-    <form wire:submit="loginUser">
+    <form wire:submit="submit">
         <h2 class="font-semibold text-3xl">
             Redacta tu correo
         </h2>
@@ -7,9 +7,9 @@
             <label for="emailInput">
                 Destinatario
             </label>
-            <input wire:model="email" type="email" name="email" id="emailInput" placeholder="mail@mail.com">
+            <input wire:model="to_user" type="email" name="to_user" id="emailInput" placeholder="mail@mail.com">
         </div>
-        @error('email')
+        @error('to_user')
         <label class="errorMessage">{{$message}}</label>
         @enderror
         <div class="input-control">

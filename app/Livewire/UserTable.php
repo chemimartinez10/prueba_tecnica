@@ -21,23 +21,23 @@ class UserTable extends DataTableComponent
         return [
             Column::make("ID", "id")
                 ->sortable(),
-            Column::make("Name", "name")
+            Column::make("Nombre", "name")
                 ->sortable()->searchable(),
-            Column::make("Email", "email")
+            Column::make("Correo", "email")
                 ->sortable()->searchable(),
-            Column::make("Birth date", "birth_date")
+            Column::make("Fecha de nacimiento", "birth_date")
                 ->sortable(),
-            Column::make("Identification", "identification")
+            Column::make("Cédula", "identification")
                 ->sortable()->searchable(),
-            Column::make("Phone", "phone")
+            Column::make("Teléfono", "phone")
                 ->sortable()->searchable(),
-            Column::make("Age")
+            Column::make("Edad")
                 ->label(fn($row, Column $column) => Carbon::now()->diff($row->birth_date)->y),
-            Column::make("Created at", "created_at")
+            Column::make("Creado", "created_at")
                 ->sortable(),
-            Column::make("Updated at", "updated_at")
+            Column::make("Actualizado", "updated_at")
                 ->sortable(),
-            Column::make('Action')
+            Column::make('Acción')
                 ->label(
                     fn($row, Column $column) => view('livewire.user-action')->with(
                         [

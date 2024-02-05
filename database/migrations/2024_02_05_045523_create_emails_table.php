@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('subject');
             $table->string('message');
+            $table->string('to_email');
             $table->boolean('status');
             $table->bigInteger('from_user');
             $table->bigInteger('to_user');

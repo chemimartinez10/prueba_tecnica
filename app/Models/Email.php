@@ -13,6 +13,7 @@ class Email extends Model
         'subject',
         'message',
         'status',
+        'to_email'
     ];
     public function from_user(): BelongsTo
     {
