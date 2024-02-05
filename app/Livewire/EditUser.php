@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\Log;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Auth;
 use LivewireUI\Modal\ModalComponent;
 
 class EditUser extends ModalComponent
@@ -36,6 +37,12 @@ class EditUser extends ModalComponent
         ]);
         $user = User::find($this->id);
         $user->update($validated);
+        $log = Log::create([
+            'user_id' => Auth::user()->id,
+            'type' => 'Usuario',
+            'description' => 'Actualización de usuario ' . $user->email,
+        ]);
+
         $this->forceClose()->closeModal();
         $this->redirect('/users', false);
     }

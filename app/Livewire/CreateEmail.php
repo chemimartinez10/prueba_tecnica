@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Jobs\SendEmail;
 use App\Models\Email;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -34,6 +35,12 @@ class CreateEmail extends ModalComponent
         $email->from_user = Auth::user()->id;
         $email->status = false;
         $email->save();
+
+        $log = Log::create([
+            'user_id'=> Auth::user()->id,
+            'type'=> 'Correo',
+            'description'=> 'Creación y envio de correo a '.$this->to_user,
+        ]);
 
         
         

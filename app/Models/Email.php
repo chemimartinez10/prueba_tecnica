@@ -17,10 +17,10 @@ class Email extends Model
     ];
     public function from_user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'from_user','id');
     }
     public function to_user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'to_user','id');
     }
 }

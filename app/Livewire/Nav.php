@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use Illuminate\Http\Client\Request;
+use App\Models\Log;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -27,6 +27,11 @@ class Nav extends Component
     }
     public function logout()
     {
+        $log = Log::create([
+            'user_id' => Auth::user()->id,
+            'type' => 'Seguridad',
+            'description' => 'Salida de usuario',
+        ]);
         Auth::logout();
         session()->regenerate();
         return $this->redirect('/login', false);

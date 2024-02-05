@@ -2,8 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Models\Log;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use LivewireUI\Modal\ModalComponent;
 
@@ -20,20 +22,28 @@ class CreateUser extends ModalComponent
     {
         return view('livewire.create-user');
     }
-    public function submit(){
+    public function submit()
+    {
         $validated = $this->validate([
-            'name'=> 'required',
-            'email'=> 'required|email|unique:users,email',
-            'password'=> ['required','string','confirmed', Password::min(8)->mixedCase()->numbers()->symbols()],
-            'password_confirmation'=> 'required',
-            'birth_date'=> 'required|before:'.Carbon::now()->subYears(18)->format('Y-m-d'),
-            'identification'=> 'required|string|max:11',
-            'phone'=> 'string|max:10|min:10',
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => ['required', 'string', 'confirmed', Password::min(8)->mixedCase()->numbers()->symbols()],
+            'password_confirmation' => 'required',
+            'birth_date' => 'required|before:' . Carbon::now()->subYears(18)->format('Y-m-d'),
+            'identification' => 'required|string|max:11',
+            'phone' => 'string|max:10|min:10',
         ]);
         $createdUser = User::create($validated);
         $createdUser->assignRole('user');
+
+        $log = Log::create([
+            'user_id' => Auth::user()->id,
+            'type' => 'Usuario',
+            'description' => 'Creación de usuario ' . $validated['email'],
+        ]);
+
         $this->forceClose()->closeModal();
-        $this->redirect('/users',false);
+        $this->redirect('/users', false);
     }
     public static function modalMaxWidth(): string
     {
