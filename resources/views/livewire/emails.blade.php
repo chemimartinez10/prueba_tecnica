@@ -1,30 +1,68 @@
 <section>
-    <form wire:submit="loginUser">
-        <h2 class="font-semibold text-3xl">
-            Redacta tu correo
-        </h2>
-        <div class="input-control">
-            <label for="emailInput">
-                Destinatario
-            </label>
-            <input wire:model="email" type="email" name="email" id="emailInput" placeholder="mail@mail.com">
-        </div>
-        @error('email')
-        <label class="errorMessage">{{$message}}</label>
-        @enderror
-        <div class="input-control">
-            <label for="subjectInput">
-                Asunto
-            </label>
-            <input wire:model="subject" type="text" name="subject" id="subjectInput" placeholder="Escribe un asunto...">
-        </div>
-        <div class="input-control">
-            <label for="subjectInput">
-                Mensaje
-            </label>
-            <textarea wire:model="message" name="message" id="messageInput" cols="30" rows="20" placeholder="Escribe un mensaje aquí..."></textarea>
-        </div>
-        
-        <button type="submit" class="bg-[#4d55e4] text-white rounded tracking-[2px] uppercase font-semibold transition-all duration-[0.25s] ease-[ease-in] p-2 border-2 border-solid border-[#4d55e4];">Enviar</button>
-    </form>
+    <button
+        class="bg-[#4d55e4] text-white rounded tracking-[2px] uppercase font-semibold transition-all duration-[0.25s] ease-[ease-in] p-2 border-2 border-solid border-[#4d55e4];"
+        wire:click="$dispatch('openModal', { component: 'create-email' })">
+        Nuevo correo
+    </button>
+    <div
+        class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+        <table class="w-full text-left table-auto min-w-max">
+            <thead>
+                <tr>
+                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                        <p
+                            class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                            Destinatario
+                        </p>
+                    </th>
+                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                        <p
+                            class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                            Asunto
+                        </p>
+                    </th>
+                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                        <p
+                            class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                            Mensaje
+                        </p>
+                    </th>
+                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                        <p class="block font-sans text-sm antialiased font-normal leading-none text-blue-gray-900 opacity-70">
+                            Estado
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($emails as $email)
+                
+                <tr>
+                    <td class="p-4 border-b border-blue-gray-50">
+                        <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                            {{$email->to_user}}
+                        </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                        <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                            {{$email->subject}}
+                        </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                        <p class="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+                            {{$email->message}}
+                        </p>
+                    </td>
+                    <td class="p-4 border-b border-blue-gray-50">
+                        <a href="#"
+                            class="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+                            {{$email->status}}
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+                
+            </tbody>
+        </table>
+    </div>
 </section>
