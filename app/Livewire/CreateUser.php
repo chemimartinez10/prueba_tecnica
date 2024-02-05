@@ -6,7 +6,6 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Validation\Rules\Password;
 use LivewireUI\Modal\ModalComponent;
-use Masmerise\Toaster\Toaster;
 
 class CreateUser extends ModalComponent
 {

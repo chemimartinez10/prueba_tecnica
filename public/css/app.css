@@ -95,7 +95,7 @@ form {
     gap: 16px;
 }
 
-form>button, section>button {
+form>button, section>button, .button{
     padding: 8px;
     background-color: #4d55e4;
     color: #fff;
@@ -109,7 +109,27 @@ form>button, section>button {
     transition: all .25s ease-in;
 }
 
-form>button:hover, section>button:hover {
+.button-delete:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: #fff;
+    color: red;
+}
+.button-delete {
+    padding: 8px;
+    background-color: red;
+    color: #fff;
+    outline: none;
+    border: 2px solid red;
+    border-radius: 4px;
+    font-family: Figtree, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .25s ease-in;
+}
+
+form>button:hover, section>button:hover, .button:hover {
     cursor: pointer;
     background-color: #bcbfff55;
     color: #4d55e4;

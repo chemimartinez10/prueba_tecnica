@@ -19,6 +19,8 @@ class UserTable extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make("ID", "id")
+                ->sortable(),
             Column::make("Name", "name")
                 ->sortable()->searchable(),
             Column::make("Email", "email")
@@ -37,11 +39,9 @@ class UserTable extends DataTableComponent
                 ->sortable(),
             Column::make('Action')
                 ->label(
-                    fn($row, Column $column) => view('components.livewire.datatables.action-column')->with(
+                    fn($row, Column $column) => view('livewire.user-action')->with(
                         [
-                            'viewLink' => route('users.view', $row),
-                            'editLink' => route('users.edit', $row),
-                            'deleteLink' => route('users.delete', $row),
+                            'user' => $row,
                         ]
                     )
                 )->html(),
